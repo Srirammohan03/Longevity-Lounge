@@ -1,0 +1,153 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+/* Define the regular font */
+@font-face {
+  font-family: "The Seasons";
+  src: url("../fonts/Fontspring-DEMO-theseasons-reg.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Define the bold font */
+@font-face {
+  font-family: "The Seasons";
+  src: url("../fonts/Fontspring-DEMO-theseasons-bd.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* Define the italic font */
+@font-face {
+  font-family: "The Seasons";
+  src: url("../fonts/Fontspring-DEMO-theseasons-it.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Define the bold italic font */
+@font-face {
+  font-family: "The Seasons";
+  src: url("../fonts/Fontspring-DEMO-theseasons-bdit.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
+}
+
+:root {
+  --bg-dark: #000000;
+  --gold: #d4a24f;
+  --text-light: #ffffff;
+  --pill-bg: #89898933;
+  --pill-border: rgba(255, 255, 255, 0.15);
+  --text-color: #f7c080;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "The Seasons", serif;
+  background-color: var(--bg-dark);
+}
+
+.site-header {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo img {
+  width: 70px;
+  height: auto;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  list-style: none;
+
+  background: var(--pill-bg);
+  border: 1px solid var(--pill-border);
+  border: 1px solid;
+
+  border-image-source: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.05),
+      rgba(0, 0, 0, 0.05)
+    ),
+    linear-gradient(0deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09));
+
+  border-radius: 999px;
+  padding: 8px;
+  backdrop-filter: blur(8px);
+}
+
+.nav-item {
+  padding: 10px 22px;
+  border-radius: 999px;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.nav-item.active {
+  background: #89898933;
+  border: 0.65px solid #ffffff17;
+  color: var(--text-color);
+}
+
+.btn-enquire {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 999px;
+
+  color: var(--gold);
+  border: 1px solid var(--pill-border);
+  background: transparent;
+  text-decoration: none;
+  font-size: 14px;
+
+  transition: all 0.3s ease;
+}
+
+.btn-enquire:hover {
+  background: rgba(212, 162, 79, 0.15);
+}
+
+/* established */
+
+.established {
+  font-weight: 400;
+  font-style: Italic;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  color: var(--text-light);
+  border: 2px solid white;
+}
