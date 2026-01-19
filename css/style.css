@@ -39,6 +39,7 @@
   --pill-bg: #89898933;
   --pill-border: rgba(255, 255, 255, 0.15);
   --text-color: #f7c080;
+  --font-family: "The Seasons", serif;
 }
 
 * {
@@ -214,7 +215,9 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0.8; /* Slight dimming to make text pop */
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
 }
 
 /* Hover Effect */
