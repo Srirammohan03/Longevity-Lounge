@@ -50,7 +50,10 @@
 body {
   font-family: "The Seasons", serif;
   background-color: var(--bg-dark);
+  color: #fff;
 }
+
+/* ... (Keep your Header/Nav CSS exactly as it was) ... */
 
 .site-header {
   width: 100%;
@@ -63,6 +66,7 @@ body {
   padding: 0 24px;
 }
 
+/* ... (Paste your Navbar CSS here) ... */
 .navbar {
   display: flex;
   align-items: center;
@@ -79,18 +83,8 @@ body {
   align-items: center;
   gap: 6px;
   list-style: none;
-
   background: var(--pill-bg);
   border: 1px solid var(--pill-border);
-  border: 1px solid;
-
-  border-image-source: linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.05),
-      rgba(0, 0, 0, 0.05)
-    ),
-    linear-gradient(0deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.09));
-
   border-radius: 999px;
   padding: 8px;
   backdrop-filter: blur(8px);
@@ -103,11 +97,7 @@ body {
   cursor: pointer;
   transition: all 0.3s ease;
   font-family: "Inter", sans-serif;
-  font-weight: 400;
-  font-style: Regular;
   font-size: 14px;
-  line-height: 100%;
-  letter-spacing: 0%;
 }
 
 .nav-item:hover {
@@ -124,13 +114,10 @@ body {
   display: inline-block;
   padding: 12px 28px;
   border-radius: 999px;
-
   color: var(--gold);
   border: 1px solid var(--pill-border);
-  background: transparent;
   text-decoration: none;
   font-size: 14px;
-
   transition: all 0.3s ease;
 }
 
@@ -138,16 +125,124 @@ body {
   background: rgba(212, 162, 79, 0.15);
 }
 
-/* established */
-
+/* ================= ESTABLISHED SECTION ================= */
 .established {
-  font-weight: 400;
-  font-style: Italic;
-  font-size: 48px;
-  line-height: 100%;
-  letter-spacing: 0%;
+  padding: 80px 0 120px;
+  /* Added a subtle texture/gradient similar to image */
+  background: radial-gradient(circle at center top, #1a1a1a 0%, #000000 70%);
+}
+
+.established-title {
   text-align: center;
-  vertical-align: middle;
+  font-size: 38px;
+  font-style: italic;
+  font-weight: 300;
+  max-width: 900px;
+  margin: 0 auto 60px;
+  line-height: 1.3;
+  color: #fff;
+}
+
+/* ================= HEX GRID (FLEXBOX) ================= */
+.hex-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px 14px; /* Row gap 24px, Column gap 14px */
+
+  /* CRITICAL: Constrain width to force the 5-item wrap */
+  /* 5 items * ~190px width + gaps = approx 1050px */
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ================= HEX CARD ================= */
+.hex-card {
+  width: 190px;
+  height: 210px;
+  position: relative;
+
+  /* This creates the Gold Border effect */
+  background: linear-gradient(
+    135deg,
+    #bf953f,
+    #fcf6ba,
+    #b38728,
+    #fbf5b7,
+    #aa771c
+  );
+  padding: 1.5px; /* Thickness of the gold border */
+
+  /* Applying the shape to the wrapper */
+  -webkit-mask-image: url("../assets/images/most-trusted/mask.png");
+  mask-image: url("../assets/images/most-trusted/mask.png");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  /* Fallback shape if mask.png is missing (Shield Shape) */
+  clip-path: path(
+    "M95,0 C95,0 190,30 190,90 C190,160 95,210 95,210 C95,210 0,160 0,90 C0,30 95,0 95,0 Z"
+  );
+}
+
+/* The inner content sits on top of the gold background */
+.card-content {
+  width: 100%;
+  height: 100%;
+  background: #000; /* Background behind image if transparent */
+  position: relative;
+  overflow: hidden;
+
+  /* Slightly smaller mask to show the border behind? 
+     Actually, if we pad the parent, the content just fits inside. 
+     We need to ensure the image clips to the same shape. */
+  -webkit-mask-image: url("../assets/images/most-trusted/mask.png");
+  mask-image: url("../assets/images/most-trusted/mask.png");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+  /* Sync fallback shape */
+  clip-path: path(
+    "M95,0 C95,0 190,30 190,90 C190,160 95,210 95,210 C95,210 0,160 0,90 C0,30 95,0 95,0 Z"
+  );
+}
+
+.card-content img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8; /* Slight dimming to make text pop */
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Hover Effect */
+.hex-card:hover .card-content img {
+  transform: scale(1.1);
+  opacity: 1;
+}
+
+/* Overlay for text legibility at bottom */
+.card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 10%, transparent);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 25px;
+}
+
+.hex-card p {
   color: var(--text-light);
-  border: 2px solid white;
+  text-align: center;
+  font-family: "The Seasons", serif; /* Ensure font matches */
+  font-size: 15px;
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: 0.5px;
 }
