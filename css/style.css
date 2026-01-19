@@ -72,7 +72,6 @@ body {
 .container {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
 }
 
 .navbar {
@@ -166,38 +165,93 @@ body {
 
 /* ================= ESTABLISHED SECTION ================= */
 .established {
-  padding: 80px 0 120px;
-  /* Added a subtle texture/gradient similar to image */
-  background: radial-gradient(circle at center top, #1a1a1a 0%, #000000 70%);
+  padding: 100px 0;
+  color: #fff;
 }
 
 .established-title {
   text-align: center;
-  font-size: 38px;
+  font-size: clamp(28px, 3.2vw, 46px);
   font-style: italic;
   font-weight: 300;
-  max-width: 900px;
-  margin: 0 auto 60px;
-  line-height: 1.3;
-  color: #fff;
+  line-height: 1.15;
+  max-width: 980px;
+  margin: 0 auto clamp(32px, 3.5vw, 60px);
+  text-shadow: 0 2px 22px rgba(0, 0, 0, 0.6);
 }
 
-/* ================= HEX GRID (FLEXBOX) ================= */
-.hex-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0px 14px;
-  max-width: 1100px;
+/* ===== 5 + 4 honeycomb layout ===== */
+.established-grid {
+  /* IMPORTANT: use px/clamp, NOT % */
+  --col-gap: clamp(26px, 2.8vw, 35px);
+  --row-gap: clamp(10px, 1.6vw, 15px);
+
+  /* this is what fixes your "red wave gap" */
+  --row2-shift: clamp(-78px, -6vw, -58px);
+
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+  row-gap: var(--row-gap);
+  justify-items: center;
+  align-items: start;
+
+  max-width: 1160px;
   margin: 0 auto;
+  padding-top: 10px;
 }
 
-/* ================= HEX CARD ================= */
-.hex-card {
-  width: 190px;
-  height: 210px;
-  position: relative;
+/* Row 1 */
+.established-grid > .hex-card:nth-child(1) {
+  grid-column: 1 / span 2;
+}
+.established-grid > .hex-card:nth-child(2) {
+  grid-column: 3 / span 2;
+}
+.established-grid > .hex-card:nth-child(3) {
+  grid-column: 5 / span 2;
+}
+.established-grid > .hex-card:nth-child(4) {
+  grid-column: 7 / span 2;
+}
+.established-grid > .hex-card:nth-child(5) {
+  grid-column: 9 / span 2;
+}
 
+/* Row 2 (offset) */
+.established-grid > .hex-card:nth-child(6) {
+  grid-column: 2 / span 2;
+}
+.established-grid > .hex-card:nth-child(7) {
+  grid-column: 4 / span 2;
+}
+.established-grid > .hex-card:nth-child(8) {
+  grid-column: 6 / span 2;
+}
+.established-grid > .hex-card:nth-child(9) {
+  grid-column: 8 / span 2;
+}
+
+.established-grid > .hex-card:nth-child(n + 6) {
+  transform: translateY(var(--row2-shift));
+}
+
+/* ===== Card + border (clean + consistent) ===== */
+.hex-card {
+  --border: 2.5px;
+
+  /* keep reference size (this is what your original design matches) */
+  width: 240px;
+  aspect-ratio: 210 / 230;
+
+  position: relative;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.55));
+}
+
+.hex-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background: linear-gradient(
     135deg,
     #bf953f,
@@ -206,80 +260,327 @@ body {
     #fbf5b7,
     #aa771c
   );
-  padding: 1.5px;
-  -webkit-mask-image: url("../assets/images/most-trusted/mask.png");
-  mask-image: url("../assets/images/most-trusted/mask.png");
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
+  -webkit-mask: url("../assets/images/most-trusted/mask.png") center/100% 100%
+    no-repeat;
+  mask: url("../assets/images/most-trusted/mask.png") center/100% 100% no-repeat;
 
-  /* Fallback shape if mask.png is missing (Shield Shape) */
-  clip-path: path(
-    "M95,0 C95,0 190,30 190,90 C190,160 95,210 95,210 C95,210 0,160 0,90 C0,30 95,0 95,0 Z"
-  );
+  /* subtle glow like reference */
+  box-shadow: 0 0 18px rgba(212, 162, 79, 0.22);
 }
 
-/* The inner content sits on top of the gold background */
-.card-content {
-  width: 100%;
-  height: 100%;
-  background: #000; /* Background behind image if transparent */
-  position: relative;
+.hex-inner {
+  position: absolute;
+  inset: var(--border);
   overflow: hidden;
-
-  /* Slightly smaller mask to show the border behind? 
-     Actually, if we pad the parent, the content just fits inside. 
-     We need to ensure the image clips to the same shape. */
-  -webkit-mask-image: url("../assets/images/most-trusted/mask.png");
-  mask-image: url("../assets/images/most-trusted/mask.png");
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-
-  /* Sync fallback shape */
-  clip-path: path(
-    "M95,0 C95,0 190,30 190,90 C190,160 95,210 95,210 C95,210 0,160 0,90 C0,30 95,0 95,0 Z"
-  );
+  background: #000;
+  -webkit-mask: url("../assets/images/most-trusted/mask.png") center/100% 100%
+    no-repeat;
+  mask: url("../assets/images/most-trusted/mask.png") center/100% 100% no-repeat;
 }
 
-.card-content img {
+.hex-inner img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.8; /* Slight dimming to make text pop */
+  display: block;
+  opacity: 0.92;
+  transform: scale(1.03);
   transition:
-    transform 0.4s ease,
-    opacity 0.4s ease;
+    transform 260ms ease,
+    opacity 260ms ease;
 }
 
-/* Hover Effect */
-.hex-card:hover .card-content img {
-  transform: scale(1.1);
+.hex-card:hover .hex-inner img {
+  transform: scale(1.12);
   opacity: 1;
 }
 
-/* Overlay for text legibility at bottom */
-.card-overlay {
+/* ===== Label exactly like design ===== */
+.hex-label {
   position: absolute;
-  bottom: 0;
   left: 0;
+  bottom: 0;
   width: 100%;
-  height: 33%;
-  background: black;
+  height: 35%;
+  background: rgba(0, 0, 0, 0.93);
+
   display: flex;
-  align-items: flex-end;
+  /* align-items:center; */
   justify-content: center;
-  padding-bottom: 25px;
+
+  padding: 5px 12px;
 }
 
-.hex-card p {
-  color: var(--text-light);
+.hex-label p {
+  margin: 0;
   text-align: center;
-  font-family: "The Seasons", serif; /* Ensure font matches */
-  font-size: 15px;
-  line-height: 1.2;
+  font-family: "The Seasons", serif;
+  font-size: 16px;
+  line-height: 1.12;
   font-weight: 400;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.65);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 980px) {
+  .established-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 22px;
+    row-gap: 26px;
+  }
+
+  .established-grid > .hex-card {
+    transform: none;
+  }
+
+  .established-grid > .hex-card:nth-child(1) {
+    grid-column: 1 / span 2;
+  }
+  .established-grid > .hex-card:nth-child(2) {
+    grid-column: 3 / span 2;
+  }
+  .established-grid > .hex-card:nth-child(3) {
+    grid-column: 5 / span 2;
+  }
+  .established-grid > .hex-card:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+  .established-grid > .hex-card:nth-child(5) {
+    grid-column: 4 / span 2;
+  }
+  .established-grid > .hex-card:nth-child(6) {
+    grid-column: 6 / span 2;
+  }
+  .established-grid > .hex-card:nth-child(7) {
+    grid-column: 1 / span 2;
+  }
+  .established-grid > .hex-card:nth-child(8) {
+    grid-column: 3 / span 2;
+  }
+  .established-grid > .hex-card:nth-child(9) {
+    grid-column: 5 / span 2;
+  }
+}
+
+@media (max-width: 560px) {
+  .established-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 14px;
+    row-gap: 18px;
+  }
+
+  .hex-card {
+    width: min(190px, 44vw);
+  }
+
+  .established-grid > .hex-card {
+    grid-column: auto / span 1 !important;
+    transform: none !important;
+  }
+
+  .hex-label p {
+    font-size: 14px;
+  }
+}
+
+/* Most trusted*/
+.most-trusted-section {
+  padding: 70px 0 100px;
+  background: #0b0b0b;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ---------------- Banner ---------------- */
+
+/* Banner Wrapper */
+.trusted-banner-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+
+/* Straight Horizontal Line */
+.trusted-banner-wrap .line {
+  flex: 1;
+  height: 1px;
+  background-color: #d4af37; /* solid gold */
+  position: relative;
+}
+
+/* End Dots */
+.trusted-banner-wrap .line::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  background-color: #d4af37;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.left-line::after {
+  right: 0;
+}
+
+.right-line::after {
+  left: 0;
+}
+
+/* Capsule Banner (unchanged) */
+.trusted-banner {
+  background-image: url("/assets/images/most-trusted/banner.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding: 16px 64px;
+  border-radius: 60px;
+  margin: 0 24px;
+}
+
+/* Text (unchanged) */
+.trusted-banner span {
+  color: #fbfbfb;
+  font-weight: 400;
+  font-size: 24px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------------- Layout ---------------- */
+
+.content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+/* ---------------- Phone ---------------- */
+
+.phone-mockup {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.phone-image {
+  max-width: 380px;
+  height: auto;
+  border-radius: 38px;
+  border: 12px solid #222;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  background: #111;
+}
+
+/* ---------------- Text ---------------- */
+
+.text-content {
+  flex: 1;
+  max-width: 540px;
+}
+
+.text-content .title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.text-content .title i {
+  background: #fef3c7;
+  padding: 10px;
+  border-radius: 6px;
+  color: #d97706;
+}
+
+.section-title {
+  color: #f6bf7f;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 24px;
+}
+
+.icon-series {
+  margin-bottom: 36px;
+}
+
+.icon-series p {
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+/* ---------------- Benefits ---------------- */
+
+.benefits-list {
+  list-style: disc;
+  margin-left: 18px;
+  margin-bottom: 40px;
+}
+
+.benefits-list li {
+  margin-bottom: 22px;
+}
+
+.benefits-list h3 {
+  color: var(--text-color);
+  font-weight: 400;
+  font-style: italic;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.benefits-list p {
+  font-family: "Inter", sans-serif;
+  color: var(--text-light);
+  font-weight: 400;
+  font-size: 14px;
+}
+
+/* ---------------- CTA ---------------- */
+
+.cta-button {
+  display: inline-block;
+  padding: 14px 36px;
+  background: #1a0d26;
+  border-radius: 50px;
+  text-decoration: none;
+}
+
+.cta-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cta-content h4 {
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.cta-content img {
+  width: 7.1339px;
+  height: 12.96999px;
+}
+
+/* ---------------- Responsive ---------------- */
+
+@media (max-width: 1024px) {
+  .content-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-content {
+    max-width: 100%;
+  }
 }
 
 /* Proactive  */
