@@ -21,7 +21,12 @@
         <div class="container">
           <nav class="navbar">
             <div class="nav-logo">
-              <img src="./assets/images/logo.png" alt="Longevity Lounge Logo" />
+              <a href="#">
+                <img
+                  src="./assets/images/logo.png"
+                  alt="Longevity Lounge Logo"
+                />
+              </a>
             </div>
 
             <!-- Mobile Menu Toggle Button -->
@@ -32,14 +37,24 @@
             </button>
 
             <ul class="nav-menu">
-              <li class="nav-item active">Home</li>
-              <li class="nav-item">Our Services</li>
-              <li class="nav-item">About Us</li>
-              <li class="nav-item">Contact</li>
+              <li class="nav-item active"><a href="#">Home</a></li>
+              <li class="nav-item"><a href="#services">Our Services</a></li>
+              <li class="nav-item"><a href="#about">About Us</a></li>
+              <li class="nav-item"><a href="#contact">Contact</a></li>
             </ul>
 
             <div class="nav-cta">
-              <a href="#" class="btn-enquire">Request Callback</a>
+              <a href="callback.html" class="btn-enquire">Request Callback</a>
+
+              <div class="follow-us">
+                <h5>Social Media :</h5>
+                <div class="social-icons">
+                  <i class="fa-brands fa-facebook"></i>
+                  <i class="fa-brands fa-instagram"></i>
+                  <i class="fa-brands fa-linkedin"></i>
+                  <i class="fa-brands fa-youtube"></i>
+                </div>
+              </div>
             </div>
           </nav>
         </div>
@@ -61,7 +76,7 @@
       </section>
 
       <!-- Established Section -->
-      <section class="established">
+      <section id="services" class="established">
         <div class="container">
           <h2 class="established-title">
             It is a long established fact that a reader will be distracted by
@@ -183,7 +198,7 @@
       </section>
 
       <!-- Most trusted -->
-      <section class="most-trusted-section">
+      <section id="about" class="most-trusted-section">
         <div class="container">
           <!-- Banner -->
           <div class="trusted-banner-wrap">
@@ -200,11 +215,21 @@
           <div class="content-wrapper">
             <!-- Phone -->
             <div class="phone-mockup">
-              <img
-                src="/assets/images/most-trusted/mobile.png"
-                alt="Premium Smartphone showing Longevity App"
-                class="phone-image"
-              />
+              <div class="phone-container">
+                <img
+                  src="/assets/images/most-trusted/mobile1.png"
+                  alt="Phone Frame"
+                  class="phone-frame"
+                />
+
+                <video class="phone-video" autoplay loop muted playsinline>
+                  <source
+                    src="assets/images/video/LL long video with audio low (1).mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
             </div>
 
             <!-- Text -->
@@ -332,7 +357,20 @@
 
             <!-- RIGHT -->
             <div class="right">
-              <img src="/assets/images/our-philosophy/1.png" alt="DNA" />
+              <div class="shield-mockup-container">
+                <img
+                  src="assets/images/our-philosophy/mobile.svg"
+                  alt="Shield Frame"
+                  class="shield-frame"
+                />
+
+                <video class="shield-video" autoplay loop muted playsinline>
+                  <source
+                    src="assets/images/video/philosophy.mp4"
+                    type="video/mp4"
+                  />
+                </video>
+              </div>
             </div>
           </div>
         </div>
@@ -510,7 +548,7 @@
       </section>
 
       <!-- Ready to Begin -->
-      <section class="health-journey-section">
+      <section id="contact" class="health-journey-section">
         <div class="container">
           <!-- SECTION TITLE -->
           <h2 class="hj-title">
@@ -556,6 +594,8 @@
                     </select>
                   </div>
                 </div>
+
+                <button type="submit" class="submit-btn">Submit</button>
               </form>
 
               <!-- CONTACT PILLS -->
@@ -617,17 +657,6 @@
                 <li><a href="#">Our Services</a></li>
                 <li><a href="#">Gallery</a></li>
                 <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
-
-            <div class="footer-section">
-              <h4>Social Media</h4>
-              <ul>
-                <li><a href="#">Instagram</a></li>
-                <li><a href="#">YouTube</a></li>
-                <li><a href="#">Facebook</a></li>
-                <li><a href="#">LinkedIn</a></li>
-                <li><a href="#">Twitter</a></li>
               </ul>
             </div>
 
