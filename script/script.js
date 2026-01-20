@@ -48,18 +48,42 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   });
 });
 
-const reset = () => {};
+// Form submission handling of call back
+const form = document.getElementById("appointment-form");
 
-// Form submission handling
-const contactForm = document.querySelector(".appointment-form");
-
-if (contactForm) {
-  contactForm.addEventListener("submit", function (e) {
+if (form) {
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
 
-    alert("Thank you for contacting us! We will get back to you shortly.");
+    // Create FormData object
+    const formData = new FormData(form);
 
-    contactForm.reset();
+    // Convert FormData → Plain Object (payload)
+    const payload = Object.fromEntries(formData.entries());
+
+    // Optional: normalize or transform values
+    payload.createdAt = new Date().toISOString();
+
+    console.log("Appointment Payload:", payload);
+
+    /*
+      Example payload:
+      {
+        patientName: "John Doe",
+        patientContact: "9876543210",
+        email: "john@email.com",
+        specialty: "Oncology",
+        city: "Surat",
+        doctor: "Dr. Patel",
+        time: "10:30",
+        date: "2026-01-20",
+        query: "Need consultation",
+        createdAt: "2026-01-20T08:20:10.123Z"
+      }
+    */
+
+    // Reset form after submission
+    form.reset();
   });
 }
 

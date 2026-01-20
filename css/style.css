@@ -143,11 +143,28 @@ body {
   border-radius: 999px;
   padding: 8px;
   backdrop-filter: blur(8px);
+  position: relative;
+  z-index: 2;
 }
 
 .nav-item {
   position: relative;
   border-radius: 999px;
+}
+.nav-menu.active::before {
+  content: "";
+  background-image: url("/assets/images/OBJECTS.svg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  display: inline-block;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  height: 100%;
+  transform: rotate(357deg);
+  width: 100%;
 }
 
 /* Apply ALL visual styles to <a> */
@@ -521,8 +538,7 @@ body {
 .content-wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 80px;
+  justify-content: space-around;
 }
 
 /* ---------------- Phone ---------------- */
@@ -972,8 +988,8 @@ body {
 }
 
 .hj-left {
-  width: 648;
-  height: 602;
+  width: 648px;
+  height: 602px;
   opacity: 1;
   border-radius: 12px;
 }
@@ -1092,6 +1108,12 @@ body {
   flex-direction: column;
   align-items: center;
   min-width: 150px;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .logo-icon {
@@ -1260,7 +1282,7 @@ body {
 }
 
 .philosophy-contain {
-  height: 100%;
+  /* height: 100%; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1366,7 +1388,6 @@ body {
 .shield-frame {
   position: relative;
   width: 100%;
-  height: auto;
   z-index: 2;
   pointer-events: none;
   display: block;
@@ -1377,8 +1398,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 85%;
-  height: 98%;
+
+  width: 90%;
+  height: 90%;
+
   object-fit: cover;
   z-index: 1;
   clip-path: polygon(
