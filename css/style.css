@@ -1661,38 +1661,46 @@ input:-webkit-autofill {
   color: #f6bf7f;
 }
 
-/* Ensure native date/time controls receive click */
-.form-group input[type="date"],
-.form-group input[type="time"] {
-  position: relative;
-  z-index: 3;
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(1); /* Turns black icon to white */
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(85%) sepia(21%) font-weight(600) saturate(786%)
+    hue-rotate(328deg) brightness(101%) contrast(93%);
   cursor: pointer;
 }
 
-/* Move label out of the way for date/time inputs */
-.form-group:has(input[type="date"]) label,
-.form-group:has(input[type="time"]) label {
-  top: 0;
-  transform: translateY(-50%);
-  font-size: 11px;
-  color: #f6bf7f;
+.form-group input[type="date"],
+.form-group input[type="time"] {
+  display: flex;
+  align-items: center;
+}
+
+.form-group textarea {
+  resize: vertical;
 }
 
 /* ---------------- Submit Button ---------------- */
 
 .submit-btn {
   display: inline-block;
-  padding: 12px 28px;
+  padding: 15px 79px;
   border-radius: 999px;
   font-family: "Inter", sans-serif;
   color: var(--gold);
   border: 1px solid var(--pill-border);
   background: transparent;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 22px;
   transition: all 0.3s ease;
   position: relative;
-  margin-top: 10px;
+  margin: 0 auto;
+  /* max-width: 57%; */
 }
 
 .submit-btn:hover {
