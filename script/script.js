@@ -96,3 +96,13 @@ if (homeForm) {
     homeForm.reset();
   });
 }
+
+const video = document.getElementById("heroVideo");
+
+video.addEventListener("click", () => {
+  video.muted = !video.muted;
+
+  if (!video.muted) {
+    video.volume = 1;
+  }
+});

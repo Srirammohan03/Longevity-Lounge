@@ -66,6 +66,7 @@
       <!-- Video -->
       <section class="hero-video-section">
         <video
+          id="heroVideo"
           class="hero-video"
           autoplay
           muted
@@ -216,6 +217,7 @@
             <!-- Phone -->
             <div class="phone-mockup">
               <div class="phone-container">
+                <div class="phone-glow"></div>
                 <img
                   src="/assets/images/most-trusted/mobile1.png"
                   alt="Phone Frame"
@@ -366,26 +368,13 @@
                   />
                 </video>
 
-                <!-- Border SVG -->
-                <svg
-                  class="shield-border"
-                  viewBox="0 0 300 420"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+                <svg viewBox="0 0 330 448" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Original outer shape -->
                   <path
-                    d="
-        M150 6
-        Q235 26 270 78
-        L270 342
-        Q235 394 150 414
-        Q65 394 30 342
-        L30 78
-        Q65 26 150 6
-        Z
-      "
+                    d="M 165 0 L 310 50 Q 330 60 330 85 L 330 363 Q 330 388 310 398 L 165 448 L 20 398 Q 0 388 0 363 L 0 85 Q 0 60 20 50 Z"
                     fill="none"
-                    stroke="rgba(0,0,0)"
-                    stroke-width="2"
+                    stroke="black"
+                    stroke-width="3"
                   />
                 </svg>
               </div>
@@ -465,6 +454,19 @@
 
       <!-- Proactive -->
       <section class="proactive-section">
+        <video
+          class="proactive-bg-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+        >
+          <source src="assets/images/video/beams.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Optional overlay for readability -->
+        <div class="proactive-overlay"></div>
         <div class="container">
           <div class="ps-header">
             <h2>Why Proactive Healthcare Matters</h2>
@@ -639,8 +641,8 @@
                   <div class="pill-detail">
                     <span>Visit Us</span>
                     <p>
-                      123 Main St, Cityville,<br />
-                      ST 12345
+                      10th floor CHR Lane, Rd Number 1, Seven Hills
+                      Colony,Gachibowli, Hyderabad, Telangana 500032
                     </p>
                   </div>
                 </div>
@@ -667,30 +669,32 @@
               <img src="./assets/images/logo.png" alt="Longevity Lounge Logo" />
             </div>
 
-            <div class="footer-section">
-              <h4>Quick Links</h4>
-              <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Our Services</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </div>
+            <div class="footer-con">
+              <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                  <li><a href="#">Home</a></li>
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Our Services</a></li>
+                  <li><a href="#">Gallery</a></li>
+                  <li><a href="#">Contact</a></li>
+                </ul>
+              </div>
 
-            <div class="footer-section">
-              <h4>Address</h4>
-              <p>
-                CHR Lane, Rd Number 1 Seven Hills Colony Gachibowli, Hyderabad,
-                Telangana 500032
-              </p>
-              <div class="follow-us">
-                <h5>Follow Us</h5>
-                <div class="social-icons">
-                  <i class="fa-brands fa-facebook"></i>
-                  <i class="fa-brands fa-instagram"></i>
-                  <i class="fa-brands fa-linkedin"></i>
-                  <i class="fa-brands fa-youtube"></i>
+              <div class="footer-section">
+                <h4>Address</h4>
+                <p>
+                  CHR Lane, Rd Number 1 Seven Hills Colony Gachibowli,
+                  Hyderabad, Telangana 500032
+                </p>
+                <div class="follow-us">
+                  <h5>Follow Us</h5>
+                  <div class="social-icons">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-brands fa-youtube"></i>
+                  </div>
                 </div>
               </div>
             </div>
