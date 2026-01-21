@@ -747,9 +747,9 @@
     max-height: 420px;
   }
 
-  .shield-video {
+  /* .shield-video {
     width: 65%;
-  }
+  } */
 }
 
 /* ---------- ≤ 768px (Tablet / Large Mobile) ---------- */
@@ -870,20 +870,20 @@
   .health-journey-section {
     padding: 36px 0;
   }
-  .shield-video {
+  /* .shield-video {
     width: 70%;
     height: 95%;
-  }
+  } */
 }
 
 @media (max-width: 295px) {
   .health-journey-section {
     padding: 36px 0;
   }
-  .shield-video {
+  /* .shield-video {
     width: 94%;
     height: 95%;
-  }
+  } */
 }
 
 /* call backs */
