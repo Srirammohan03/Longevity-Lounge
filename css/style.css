@@ -55,7 +55,7 @@ body {
 }
 
 .container {
- max-width: 1280px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -308,7 +308,8 @@ body {
 /* ================= ESTABLISHED SECTION ================= */
 .established {
   position: relative;
-  padding: 100px 0;
+  padding-top: 100px;
+  padding-bottom: 30px;
   color: #fff;
 
   background-image: url("/assets/images/Section.svg");
@@ -487,7 +488,8 @@ body {
 
 /* Most trusted*/
 .most-trusted-section {
-  padding: 100px 0;
+  padding-bottom: 100px;
+  padding-top: 30px;
   position: relative;
   overflow: hidden;
 
@@ -1133,7 +1135,7 @@ body {
 /* MAP */
 .hj-map iframe {
   width: 100%;
-  height: 220px;
+  height: 150px;
   border-radius: 6px;
   border: none;
 }
