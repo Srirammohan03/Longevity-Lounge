@@ -992,3 +992,24 @@
     width: 100%;
   }
 }
+
+@media (max-width: 762px) {
+  .back-link {
+    flex-basis: 30%;
+  }
+
+  .callback-content {
+    flex-direction: column;
+  }
+}
+
+/* TEXT  */
+@media (max-width: 768px) {
+  .bs-header {
+    max-width: 100%;
+  }
+
+  .ps-header {
+    max-width: 100%;
+  }
+}

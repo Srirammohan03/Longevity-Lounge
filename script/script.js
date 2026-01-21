@@ -106,3 +106,13 @@ video.addEventListener("click", () => {
     video.volume = 1;
   }
 });
+
+document
+  .querySelectorAll('input[type="date"], input[type="time"]')
+  .forEach((input) => {
+    input.addEventListener("click", () => {
+      if (input.showPicker) {
+        input.showPicker();
+      }
+    });
+  });
