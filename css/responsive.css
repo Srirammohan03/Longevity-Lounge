@@ -861,6 +861,9 @@
 
 /* ---------- ≤ 480px (Mobile) ---------- */
 @media (max-width: 508px) {
+  .svg {
+    display: none;
+  }
   /* SECTION */
   .philosophy {
     height: auto;
@@ -972,9 +975,6 @@
 
   .left {
     padding: 5px 18px 28px;
-  }
-  .svg {
-    display: none;
   }
 }
 

@@ -149,6 +149,7 @@ body {
   backdrop-filter: blur(8px);
   position: relative;
   z-index: 2;
+  filter: blur(1.2);
 }
 
 .nav-item {
@@ -1105,7 +1106,7 @@ body {
 .hj-container {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
-  gap: 60px;
+  gap: 30px;
   align-items: center;
 }
 
@@ -1114,6 +1115,10 @@ body {
   height: 602px;
   opacity: 1;
   border-radius: 12px;
+}
+
+.even {
+  padding-top: 11px;
 }
 
 /* LEFT IMAGE */
@@ -1133,7 +1138,7 @@ body {
 
 .hj-field label {
   display: block;
-  margin-bottom: 6px;
+  margin-bottom: 9px;
   color: var(--text-light);
   font-weight: 400;
   font-size: 16px;
@@ -1159,8 +1164,14 @@ body {
 .hj-pills {
   display: flex;
   gap: 16px;
-  margin: 32px 0;
+  margin: 16px 0;
   flex-wrap: wrap;
+}
+
+.pill-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .hj-pill {
@@ -1360,10 +1371,11 @@ body {
   padding: 26px 16px;
   text-align: center;
   overflow: hidden;
+  border-top: 1.3px solid #f6bf7f;
 }
 
 /* LEFT CURVE */
-.copyright::before {
+/* .copyright::before {
   content: "";
   position: absolute;
   top: 0px;
@@ -1374,10 +1386,10 @@ body {
   border-top-left-radius: 120px;
   transform: skewX(-62deg);
   opacity: 0.8;
-}
+} */
 
 /* RIGHT CURVE */
-.copyright::after {
+/* .copyright::after {
   content: "";
   position: absolute;
   top: 0px;
@@ -1388,7 +1400,7 @@ body {
   border-top-right-radius: 120px;
   transform: skewX(59deg);
   opacity: 0.8;
-}
+} */
 
 /* TEXT */
 .copyright p {
@@ -1523,9 +1535,9 @@ body {
   position: absolute;
   inset: 0;
   width: 100%;
-  height: 100%;
+  height: 95%;
   object-fit: cover;
-
+  top: 5px;
   /* MASK */
   -webkit-mask-image: url("/assets/images/our-philosophy/shield-mask.svg");
   -webkit-mask-repeat: no-repeat;
@@ -1690,7 +1702,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .submit-btn {
   display: inline-block;
   padding: 15px 79px;
-  border-radius: 999px;
+  border-radius: 8px;
   font-family: "Inter", sans-serif;
   color: var(--gold);
   border: 1px solid var(--pill-border);
@@ -1700,7 +1712,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   transition: all 0.3s ease;
   position: relative;
   margin: 0 auto;
-  /* max-width: 57%; */
+  width: 100%;
 }
 
 .submit-btn:hover {
@@ -1713,7 +1725,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
   content: "";
   position: absolute;
   inset: -1px;
-  border-radius: 999px;
+  border-radius: 8px;
   padding: 1px;
   background: conic-gradient(
     from var(--gradient-angle-cta),
