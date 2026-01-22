@@ -447,8 +447,11 @@
 }
 
 /* benefits */
-@media (max-width: 402px) {
-  .benefits-list p {
+@media (max-width: 703px) {
+  .benefits-list .disc-content p {
+    text-align: start;
+  }
+  .benefits-list h3 {
     text-align: start;
   }
 }
@@ -464,6 +467,15 @@
 
   .text-content {
     max-width: 100%;
+  }
+}
+@media (max-width: 700px) {
+  .bp-image {
+    width: 95%;
+    margin: 0 auto;
+  }
+  .bp-content {
+    padding-top: 12px;
   }
 }
 
@@ -491,6 +503,7 @@
   }
   .section-title {
     font-size: 18px;
+    line-height: 1.5;
   }
 }
 
@@ -624,6 +637,7 @@
 
   .bs-header h2 {
     font-size: 26px;
+    line-height: 1.5;
   }
 
   .bs-header p {
@@ -659,10 +673,11 @@
 
   .hj-title {
     font-size: 30px;
+    max-width: 100%;
   }
 
   .hj-left {
-    width: 70%;
+    width: 100%;
     margin: 0 auto;
     height: auto;
   }
@@ -883,7 +898,7 @@
   /* TITLE */
   .left .title {
     font-size: 26px;
-    line-height: 1.25;
+    line-height: 1.5;
     text-align: center;
     margin-bottom: 18px;
   }
@@ -941,11 +956,31 @@
     padding: 36px 0;
   }
   .shield-video {
-    height: 88%;
+    height: 94%;
+    top: 5px;
   }
 
   .shield-mockup-container {
     height: 479px;
+  }
+}
+
+@media (max-width: 363px) {
+  .shield-video {
+    height: 86%;
+  }
+
+  .left {
+    padding: 5px 18px 28px;
+  }
+  .svg {
+    display: none;
+  }
+}
+
+@media (max-width: 332px) {
+  .shield-video {
+    height: 78%;
   }
 }
 
@@ -990,6 +1025,12 @@
 
   .submit-btn {
     width: 100%;
+  }
+
+  .submit-btn {
+    padding: 14px 54px;
+    font-size: 17px;
+    margin-top: 19px;
   }
 }
 
